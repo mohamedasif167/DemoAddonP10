@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 public class MainActivity extends AppCompatActivity {
 
     ImageView iv, iv2;
@@ -13,8 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Normal ImageView
         iv = (ImageView) findViewById(R.id.iv);
         iv.setImageResource(R.mipmap.ic_launcher);
+
+        //Zoomable ImageView
+        iv2 = (ImageView) findViewById(R.id.myZoomageView);
+
+        // Displaying pictures from the internet
+        String imageUrl = "http://square.github.io/picasso/static/sample.png";
+        Picasso.with(this).load(imageUrl).into(iv2);
+
 
     }
 }
